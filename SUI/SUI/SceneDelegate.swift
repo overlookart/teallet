@@ -10,10 +10,18 @@ import UIKit
 import SwiftUI
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+    ///实现iPad支持多窗口
+    /*如果需要支持iOS 13 及之前多个版本的iOS，且又不需要多个窗口的功能，可以删除项目info.plist文件中的Application Scene Manifest的配置数据，AppDelegate中关于Scene的代理方法、SceneDelegate的类是否删除都可以。
+     
+     OS 13项目info.plist中的配置项Application Scene Manifest是针对ipad multiple windows功能推出的。
+     在保留Application SceneManifest配置项不予删除时（其中，项目是否支持多窗口功能是个可勾选项），
+     原先AppDelegate的生命周期方法不再起作用，需要在SceneDelegate中使用UIScene提供的生命周期方法，
+     并且需要针对ios13需要在Scene中配置和ios13以下在AppDelegate中做两套配置。
+     */
 
+    
+    
     var window: UIWindow?
-
-
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
