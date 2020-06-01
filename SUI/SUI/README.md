@@ -166,6 +166,207 @@ VStack {
 
 ### 如何使用Image视图绘制图像
 
+使用Image视图在SwiftUI布局中呈现图像。 这些可以从您的包，系统图标，UIImage等加载图像，但是这三个是最常见的。
+
+要从包中加载图片并将其显示在图片视图中，只需使用以下方法：
+
+```  
+var body: some View {
+    Image("example-image")
+}
+```
+
+要从AppleApple’s San Francisco符号集加载图标，请使用Image（systemName :)初始化程序，并传入要加载的图标字符串，如下所示：
+
+```  
+Image(systemName: "cloud.heavyrain.fill")
+```
+
+最后，您可以从现有的UIImage创建图像视图。 由于这需要更多代码，因此您需要显式使用return关键字：
+```
+guard let img = UIImage(named: "example-image") else {
+    fatalError("Unable to load image")
+}
+
+return Image(uiImage: img)
+```
+如果您使用的是系统图标集，则返回的图像是可缩放的和可着色的，这意味着您可以使用已经看到的相同的frontantColor（）修饰符为图像着色：
+
+```
+Image(systemName: "cloud.heavyrain.fill")
+    .foregroundColor(.red)
+```
+
+而且这还意味着您可以要求SwiftUI放大图像以匹配其随附的任何“动态类型”文本样式（如果有）：
+```
+Image(systemName: "cloud.heavyrain.fill")
+    .font(.largeTitle)
+```
+
+### 如何调整图像适合其空间的方式
+SwiftUI的图片视图可以以不同的方式缩放，就像UIImageView的内容模式一样。
+
+默认情况下，图像视图会自动调整其大小以适应其内容，这可能会使它们超出屏幕。 如果添加resizable（）修饰符，则图像将自动调整大小，以使其充满所有可用空间：
+```
+Image("example-image")
+    .resizable()
+```
+
+但是，这也可能导致图像的原始宽高比失真，因为它将在所有尺寸上拉伸所需的任何量以使其填充空间。
+如果要保持其宽高比，则应使用.fill或.fit添加一个AspectRatio修饰符，如下所示：
+```
+Image("example-image")
+    .resizable()
+    .aspectRatio(contentMode: .fit)
+```
+
+### 如何平铺图像
+如果要求SwiftUI使图片视图占用比图片设计更多的空间，则默认行为是拉伸图片，使其适合您所需要的空间。 但是，并不需要那样做：它还可以平铺图像，即水平和垂直重复图像以完全填充空间。
+
+关键是将resizable（）修饰符与其resizingMode参数一起使用。 该名称可以是.stretch（默认设置）或.tile，其中.tile是您要查找的内容。
+在代码中，它看起来像这样：
+```
+Image("YourImage")
+    .resizable(resizingMode: .tile)
+```
+如果您只想平铺图像的一部分（将一个或多个边缘固定在图像视图的边缘），则可以为第一个参数提供边缘插图，如下所示：
+```
+Image("YourImage")
+    .resizable(capInsets: EdgeInsets(top: 20, leading: 20, bottom: 20, trailing: 20), resizingMode: .tile)
+```
+
+### 如何渲染渐变
+SwiftUI为我们提供了各种渐变选项，所有这些选项都可以以多种方式使用。 例如，您可以使用白色到黑色的线性渐变来渲染文本视图，如下所示：
+```
+Text("Hello World")
+    .padding()
+    .foregroundColor(.white)
+    .background(LinearGradient(gradient: Gradient(colors: [.white, .black]), startPoint: .top, endPoint: .bottom))
+```
+
+颜色被指定为一个数组，您可以根据需要设置任意多个颜色–默认情况下，SwiftUI会将它们平均隔开。 因此，我们可以像这样从白色变成红色再变成黑色：
+```
+Text("Hello World")
+    .padding()
+    .foregroundColor(.white)
+    .background(LinearGradient(gradient: Gradient(colors: [.white, .red, .black]), startPoint: .top, endPoint: .bottom))
+```
+
+要制作水平渐变而不是垂直渐变，请使用.lead和.trailing作为起点和终点：
+```
+Text("Hello World")
+    .padding()
+    .foregroundColor(.white)
+    .background(LinearGradient(gradient: Gradient(colors: [.white, .red, .black]), startPoint: .leading, endPoint: .trailing))
+```
+
+对于其他渐变样式，请尝试RadialGradient或AngularGradient。 例如，这将创建一个从圆心开始到边缘的各种颜色的径向渐变：
+```
+let colors = Gradient(colors: [.red, .yellow, .green, .blue, .purple])
+let conic = RadialGradient(gradient: colors, center: .center, startRadius: 50, endRadius: 200)
+return Circle()
+    .fill(conic)
+    .frame(width: 400, height: 400)
+```
+
+这将创建一个角度渐变（通常称为圆锥渐变），循环显示各种颜色，然后返回到起点：
+```
+let colors = Gradient(colors: [.red, .yellow, .green, .blue, .purple, .red])
+let conic = AngularGradient(gradient: colors, center: .center)
+return Circle()
+    .fill(conic)
+```
+
+由于所有三种渐变类型都符合ShapeStyle协议，因此可以将它们用于背景，填充和笔触。 例如，这使用我们的彩虹圆锥形渐变作为圆的粗内部笔画：
+```
+let colors = Gradient(colors: [.red, .yellow, .green, .blue, .purple, .red])
+let conic = AngularGradient(gradient: colors, center: .center, startAngle: .zero, endAngle: .degrees(360))
+return Circle()
+    .strokeBorder(conic, lineWidth: 50)
+```
+
+### 如何使用图像和其他视图作为背景
+您可以使用相同的background（）修饰符指定背景图像，而不是指定背景颜色。
+例如，这将创建一个具有大字体的文本视图，然后在其后放置一个100x100的图像：
+```
+Text("Hacking with Swift")
+    .font(.largeTitle)
+    .background(
+        Image("example-image")
+            .resizable()
+            .frame(width: 100, height: 100))
+```
+
+但是，在SwiftUI中，它不必是图像-您实际上可以为背景使用任何类型的视图。 例如，这将创建相同的文本视图，然后在其后放置一个200x200的红色圆圈：
+```
+Text("Hacking with Swift")
+    .font(.largeTitle)
+    .background(Circle()
+        .fill(Color.red)
+        .frame(width: 200, height: 200))
+```
+
+默认情况下，背景视图会自动占据需要完全可见的空间，但是如果您愿意，可以使用clipped（）修饰符将它们裁剪为其父视图的大小：
+```
+Text("Hacking with Swift")
+    .font(.largeTitle)
+    .background(Circle()
+        .fill(Color.red)
+        .frame(width: 200, height: 200))
+        .clipped()
+```
+
+明确地说，您可以使用任何视图作为背景–例如，如果需要，可以使用另一个文本视图。
+
+### 如何显示实体形状
+如果您想在应用程序中使用简单的形状，则可以直接创建它们，然后根据需要对其进行着色和定位。
+例如，如果您想要一个200x200的红色矩形，则可以使用以下代码：
+```
+Rectangle()
+    .fill(Color.red)
+    .frame(width: 200, height: 200)
+```
+
+同样，如果您想要一个50x50的蓝色圆圈，则可以使用以下方法：
+```
+Circle()
+    .fill(Color.blue)
+    .frame(width: 50, height: 50)
+```
+
+### 如何使用trim()绘制实体形状的一部分  
+SwiftUI允许我们使用其trim（）修饰符仅绘制笔触的一部分或填充形状，该修饰符采用两个参数：起始值和终止值，均存储为0到1之间的CGFloat。
+例如，如果您想要一个半圆，可以这样写：
+```
+Circle()
+    .trim(from: 0, to: 0.5)
+    .frame(width: 200, height: 200)
+```
+
+SwiftUI绘制其形状，使0度直接位于右侧，因此，如果要更改为使其直接向上0度，则应应用rotationEffect（）修饰符。
+例如，它使用计时器来调整传递给trim（）的值，以使圆的笔触随时间增长，例如进度指示器：
+```
+struct ContentView: View {
+    @State private var completionAmount: CGFloat = 0.0
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+
+    var body: some View {
+        Rectangle()
+            .trim(from: 0, to: completionAmount)
+            .stroke(Color.red, lineWidth: 20)
+            .frame(width: 200, height: 200)
+            .rotationEffect(.degrees(-90))
+            .onReceive(timer) { _ in
+                withAnimation {
+                    guard self.completionAmount < 1 else { return }
+                    self.completionAmount += 0.2
+                }
+            }
+    }
+}
+```
+
+您也可以使用带有填充形状的trim（），尽管动画时结果有些奇怪。
 
 
 ## 视图布局(View layout)
