@@ -1031,13 +1031,426 @@ GridStack(rows: 4, columns: 4) { row, col in
 这将创建一个4x4网格，每个单元格中均包含图像和文本。
 
 
-
-
-
-
-
-
 ## 响应事件(Responding to events)
+响应交互并控制程序状态
+
+### 程序状态
+
+所有应用程序都会更改状态。例如，用户可能点击了一个按钮以显示更多信息，他们可能已经在文本框中输入了一些文本，或者从日期选择器中选择了一个日期-涉及应用程序从一种状态转移到另一种状态的所有内容。
+
+状态的问题在于它太乱了：更改时，我们需要发现更改并更新布局以匹配。乍一看听起来很简单，但是随着我们状态的增长和发展，它变得越来越难–很容易忘记更新一件事情，或者弄错了更新顺序，从而使用户界面状态与预期的不符。
+
+SwiftUI通过从控件中删除状态来解决此问题。当我们将属性添加到视图时，它们实际上是惰性的-当然，它们具有值，但是更改它们不会执行任何操作。但是，如果在它们之前添加了特殊的@State属性，SwiftUI将自动监视更改并更新使用该状态的视图的任何部分。
+
+当涉及到某种状态时（例如，告诉状态属性在切换开关更改时更改），我们不能直接引用该属性。这是因为Swift认为我们现在指的是价值，而不是说“请注意这一点”。幸运的是，SwiftUI的解决方案是在属性名称前放置一个美元符号，这使我们可以引用数据本身而不是其当前值。我知道一开始这有点令人困惑，但是在一两个小时后，它就变成了第二天性。
+
+请记住，SwiftUI是声明性的，这意味着我们预先将所有可能状态的所有布局都告诉了它，并让它弄清楚了当属性更改时如何在它们之间移动。我们称之为绑定–要求SwiftUI在UI控件和基础属性之间同步更改。
+
+如果您习惯了更强制性的编程风格，那么与状态合作将首先使您感到头疼，但是请相信我-一旦您了解了它，一切都会一帆风顺。
+
+### 如何创建切换开关
+
+SwiftUI的切换功能使用户可以在真假状态之间切换，就像UIKit中的UISwitch一样。
+例如，我们可以创建一个切换器，该切换器是否显示消息取决于切换器是否已启用，但是我们当然不需要手动跟踪切换器的状态–我们希望SwiftUI做 对我们来说。
+相反，我们应该定义一个@State布尔属性，该属性将用于存储切换的当前值。 然后，我们可以根据需要使用它来显示或隐藏其他视图。
+例如：
+
+```
+struct ContentView: View {
+    @State private var showGreeting = true
+
+    var body: some View {
+        VStack {
+            Toggle(isOn: $showGreeting) {
+                Text("Show welcome message")
+            }.padding()
+
+            if showGreeting {
+                Text("Hello World!")
+            }
+        }
+    }
+}
+```
+
+我已经编写了该代码，以便仅当showGreeting为true时才返回文本视图，这意味着当showGreeting为false时VStack的大小将减小–堆栈中没有第二个视图。
+
+注意：使用@State时，Apple建议您使用private访问控制修饰符标记您的媒体资源，以明确表明该状态属于本地视图，而不在其他地方使用。
+
+### 如何创建可点击的按钮
+
+SwiftUI的按钮与UIButton相似，不同之处在于它在显示内容方面更加灵活，并且它对操作使用闭包，而不是旧的目标/操作系统。
+要创建一个按钮，您将从以下代码开始：
+
+```
+Button(action: {
+    // your action here
+}) {
+    Text("Button title")
+}
+```
+
+例如，您可以制作一个按钮，在点击该按钮时显示或隐藏一些详细信息：
+
+```
+struct ContentView: View {
+    @State private var showDetails = false
+
+    var body: some View {
+        VStack {
+            Button(action: {
+                self.showDetails.toggle()
+            }) {
+                Text("Show details")
+            }
+
+            if showDetails {
+                Text("You should follow me on Twitter: @twostraws")
+                    .font(.largeTitle)
+            }
+        }
+    }
+}
+```
+
+提示：在学习框架时，经典的做法是分散print()调用，以便您查看何时发生。 如果要通过按钮操作进行尝试，则应首先右键单击预览画布中的“播放”按钮，然后选择“调试预览”，以便您的print()调用起作用。
+按钮内的标题可以是任何视图，因此您可以创建一个图像按钮，如下所示：
+
+```
+Button(action: {
+    self.showDetails.toggle()
+}) {
+    Image("example-image")
+}
+```
+
+### 如何禁用Button和NavigationLink中图像的叠加颜色
+
+默认情况下，在NavigationLink或Button内部绘制的图像几乎不会表现出预期的效果：整个图像将被不透明的蓝色或视图中带有任何强调色的颜色覆盖。
+有两种方法可以解决此问题； 选择哪种取决于您想要的行为。
+首先，可以将buttonStyle()修饰符与PlainButtonStyle()一起使用，如下所示：
+
+```
+NavigationView {
+    NavigationLink(destination: Text("Detail view here")) {
+        Image("YourImage")
+    }
+    .buttonStyle(PlainButtonStyle())
+}
+```
+
+或像这样的普通按钮：
+
+```
+Button(action: {
+    // your action here
+}) {
+    Image("YourImage")
+}
+.buttonStyle(PlainButtonStyle())
+```
+
+使用该修改器后，您的原始图像将按预期显示。
+或者，您也可以使用renderingMode()模式修饰符来获得略有不同的结果：
+
+```
+NavigationView {
+    NavigationLink(destination: Text("Detail view here")) {
+        Image("YourImage")
+            .renderingMode(.original)
+    }
+}
+```
+
+区别是微妙的，但很重要：如果在列表中使用Button，则使用.buttonStyle(PlainButtonStyle())意味着只能轻按按钮内容周围的空格，而如果使用.renderingMode(.original)，则整个单元格仍可轻敲。
+
+### 如何从TextField读取文本
+
+SwiftUI的TextField视图类似于UITextField，尽管默认情况下看起来有点不同，并且在很大程度上依赖于绑定到状态。
+要创建一个，您应该传递一个占位符以在文本字段内使用，外加它应该绑定到的状态值。 例如，这将创建一个绑定到本地字符串的TextField，然后在其下方放置一个文本视图，以显示您键入时文本字段的输出：
+
+```
+struct ContentView: View {
+    @State private var name: String = "Tim"
+    var body: some View {
+        VStack {
+            TextField("Enter your name", text: $name)
+            Text("Hello, \(name)!")
+        }
+    }
+}
+```
+
+运行该命令后，您应该可以在文本字段中输入文字，并在下面直接看到问候语。
+使用文本字段时，有两个重要的条件。 首先，默认情况下，它们没有边框，因此您可能看不到任何东西–您需要大致在其内部轻按以激活键盘。
+其次，您可能会发现无法输入布局的画布预览。 如果遇到此问题，请按Cmd + R在模拟器中生成并运行代码。
+
+### 如何在TextField上添加边框
+
+SwiftUI的TextField视图默认没有样式，这意味着它在屏幕上是一个空白区域。 如果这符合您想要的样式，那就太好了-您已完成。 但是我们很多人都希望在文本字段周围添加边框以使其更清晰。
+如果要获取UITextField常用的“四舍五入”文本字段样式，则应使用.textFieldStyle(RoundedBorderTextFieldStyle())修饰符，如下所示：
+
+```
+TextField("Enter some text", text: $yourBindingHere)
+    .textFieldStyle(RoundedBorderTextFieldStyle())
+```
+
+### 如何将占位符添加到TextField
+
+SwiftUI的TextField就像UITextField一样支持占位符文本-灰色文本，空白时显示在文本字段中，或者使用提示（“输入密码”）或显示一些示例数据。
+要设置占位符，请将其作为文本字段的初始化程序的一部分传入，如下所示：
+
+```
+struct ContentView: View {
+    @State private var emailAddress = ""
+
+    var body: some View {
+        TextField("johnnyappleseed@apple.com", text: $emailAddress)
+            .textFieldStyle(RoundedBorderTextFieldStyle())
+            .padding()
+    }
+}
+```
+
+当该字段为空时，它将在文本字段中显示“ johnnyappleseed@apple.com”，但是一旦用户在其中输入内容，该字段就会消失。
+
+### 如何在TextField中禁用自动更正
+
+默认情况下，SwiftUI的TextField启用自动更正功能，这在大多数情况下都是您所需要的。 但是，如果要禁用它，可以使用disableAutocorrection()修饰符来实现，如下所示：
+
+```
+TextField("Enter your name", text: $name)
+    .disableAutocorrection(true)
+```
+
+提示：如果您使用Xcode的视觉界面设计SwiftUI视图，则禁用自动更正的图标是带有一行的鸭子。 我会让你自己找出原因...
+
+### 如何关闭TextField的键盘
+
+SwiftUI的TextField会在激活后自动显示键盘，但完成后隐藏键盘是很棘手的-特别是如果您在将keyboardType（）修饰符与.numberPad，.decimalPad或.phonePad等一起使用时，尤其如此。
+
+我将向您展示如何在短时间内随时隐藏键盘，但是首先我想说明一件事：SwiftUI没有内置的方式可以做到这一点–我们没有简单的修饰符 附加，所以如果您要解决这个问题，那不是因为您没有尽力而为。
+要强制SwiftUI隐藏键盘，您需要使用以下代码：
+
+```
+UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+```
+
+是的，这很长，但是它要求UIKit搜索所谓的响应者链（当前正在响应用户输入的控件集合），并找到能够退出其第一响应者状态的控件。 这是一种花哨的说法，“问任何有控制权的人停止使用键盘”，在我们的情况下，这意味着当文本字段处于活动状态时，键盘将被关闭。
+由于该代码不是特别容易阅读，因此您应考虑将其包装在如下扩展名中：
+
+```
+#if canImport(UIKit)
+extension View {
+    func hideKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
+}
+#endif
+```
+
+现在，您可以从任何SwiftUI视图中编写self.hideKeyboard()。
+使用方式取决于您的代码，但是下面是一个简单的示例，其中显示了一个十进制填充文本字段，并带有一个用于将其关闭的按钮：
+
+```
+struct ContentView: View {
+    @State private var tipAmount = ""
+
+    var body: some View {
+        VStack {
+            TextField("Name: ", text: $tipAmount)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .keyboardType(.decimalPad)
+
+            Button("Submit") {
+                print("Tip: \(self.tipAmount)")
+                self.hideKeyboard()
+            }
+        }
+    }
+}
+```
+
+### 如何使用SecureField创建安全的文本字段
+
+SwiftUI的SecureField的工作原理与常规TextField几乎相同，不同之处在于，出于保护隐私的目的而屏蔽了这些字符。 当然，将其绑定到的基础值仍然是纯字符串，因此您可以根据需要进行检查。
+这是一个示例，该示例创建绑定到本地@State属性的SecureField，以便我们可以显示它们的键入内容：
+
+```
+struct ContentView: View {
+    @State private var password: String = ""
+
+    var body: some View {
+        VStack {
+            SecureField("Enter a password", text: $password)
+            Text("You entered: \(password)")
+        }
+    }
+}
+```
+
+### 如何创建滑块并从中读取值
+
+SwiftUI的Slider视图的工作原理与UISlider相似，尽管您需要将其绑定到某个地方以便存储其值。
+
+创建它时，可以提供多种参数，但是您可能最关心的是：
+值：将其绑定到的Double值。
+在：滑块的范围。
+步骤：移动滑块时要更改多少值。
+例如，以下代码创建绑定到Celsius属性的滑块，然后随着滑块的移动更新文本视图，以便在Celsius和Fahrenheit之间转换：
+
+```
+struct ContentView: View {
+    @State private var celsius: Double = 0
+
+    var body: some View {
+        VStack {
+            Slider(value: $celsius, in: -100...100, step: 0.1)
+            Text("\(celsius) Celsius is \(celsius * 9 / 5 + 32) Fahrenheit")
+        }
+    }
+}
+```
+
+### 如何创建选择器并从中读取值
+
+SwiftUI的Picker视图设法将UIPicker和UITableView合并为一个，同时还可以适应其他操作系统上的其他样式。 很棒的是，我们真的不需要关心它的工作原理– SwiftUI在自动适应环境方面做得很好。
+
+与大多数其他控件一样，您必须将选择器附加到某种状态，以跟踪选择器的选择。 例如，这将创建一个colors数组和一个整数，该整数存储选择的颜色，然后将其与选择器和文本视图一起使用，以便您可以看到正在回读的值：
+
+```
+struct ContentView: View {
+   var colors = ["Red", "Green", "Blue", "Tartan"]
+   @State private var selectedColor = 0
+
+   var body: some View {
+      VStack {
+         Picker(selection: $selectedColor, label: Text("Please choose a color")) {
+            ForEach(0 ..< colors.count) {
+               Text(self.colors[$0])
+            }
+         }
+         Text("You selected: \(colors[selectedColor])")
+      }
+   }
+}
+```
+
+### 如何创建日期选择器并从中读取值
+
+SwiftUI的DatePicker视图类似于UIDatePicker，并具有用于控制其外观和工作方式的各种选项。 像所有存储值的控件一样，它确实需要绑定到应用程序中的某种状态。
+例如，这将创建一个绑定到birthDate属性的日期选择器，允许用户选择现在之前的任何日期，然后显示设置的日期选择器的值：
+
+```
+struct ContentView: View {
+    var dateFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .long
+        return formatter
+    }
+
+    @State private var birthDate = Date()
+
+    var body: some View {
+        VStack {
+            DatePicker(selection: $birthDate, in: ...Date(), displayedComponents: .date) {
+                Text("Select a date")
+            }
+
+            Text("Date is \(birthDate, formatter: dateFormatter)")
+        }
+    }
+}
+```
+
+您可以看到我将displayComponents设置为.date，但也可以使用.hourAndMinute来获取时间数据。
+使用in：... Date()将日期范围指定为直到当前日期（包括当前日期）的任何日期，但之后不包含任何日期。 您可以使用in：Date（）...进行相反的操作（即，允许从现在开始的日期），但是如果您需要的话，也可以使用精确范围。
+
+### 如何创建分段控件并从中读取值
+
+SwiftUI的Picker也可以用于创建与UIKit中的UISegmentedControl等效的分段控件，尽管它需要绑定到某种状态，并且您必须确保为每个分段提供一个标记，以便可以对其进行识别。 段可以是文本或图片； 其他任何事情都会无声地失败。
+例如，这将创建一个与favouriteColor状态属性一起使用的分段控件，并在下面添加一个文本视图，该文本视图显示所选的值：
+
+```
+struct ContentView: View {
+    @State private var favoriteColor = 0
+
+    var body: some View {
+        VStack {
+            Picker(selection: $favoriteColor, label: Text("What is your favorite color?")) {
+                Text("Red").tag(0)
+                Text("Green").tag(1)
+                Text("Blue").tag(2)
+            }.pickerStyle(SegmentedPickerStyle())
+
+            Text("Value: \(favoriteColor)")
+        }
+    }
+}
+```
+
+不过，在这种情况下，最好创建一个数组来存储各种颜色，然后使用ForEach通过循环在内部创建文本视图：
+
+```
+struct ContentView: View {
+    @State private var favoriteColor = 0
+    var colors = ["Red", "Green", "Blue"]
+
+    var body: some View {
+        VStack {
+            Picker(selection: $favoriteColor, label: Text("What is your favorite color?")) {
+                ForEach(0..<colors.count) { index in
+                    Text(self.colors[index]).tag(index)
+                }
+            }.pickerStyle(SegmentedPickerStyle())
+
+            Text("Value: \(colors[favoriteColor])")
+        }
+    }
+}
+```
+
+### 如何创建步进器并从中读取值
+
+SwiftUI的Stepper控件使用户可以从我们指定的范围中选择值，并提供与UIKit中的UIStepper相同的功能。
+例如，这将创建一个绑定到age属性的步进器，使用户可以选择0到130之间（包括0和130）的值：
+
+```
+struct ContentView: View {
+    @State private var age = 18
+
+    var body: some View {
+        VStack {
+            Stepper("Enter your age", value: $age, in: 0...130)
+            Text("Your age is \(age)")
+        }
+    }
+}
+```
+
+除了直接绑定到值外，还可以提供自定义onIncrement和onDecrement闭包来执行自定义工作，如下所示：
+
+```
+struct ContentView: View {
+    @State private var age = 18
+
+    var body: some View {
+        VStack {
+            Stepper("Enter your age", onIncrement: {
+                self.age += 1
+                print("Adding to age")
+            }, onDecrement: {
+                self.age -= 1
+                print("Subtracting from age")
+            })
+
+            Text("Your age is \(age)")
+        }
+    }
+}
+```
+
+
 
 ## 进价状态(Advanced state)
 
