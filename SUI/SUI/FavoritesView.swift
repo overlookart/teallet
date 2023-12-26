@@ -24,7 +24,7 @@ struct Result {
     var score: Int
 }
 
-struct ContentView: View {
+struct FavoritesView: View {
     //verticalSizeClass -- Regular
     //horizontalSizeClass -- Compact
     @Environment(\.horizontalSizeClass) var horizontalSizeClass: UserInterfaceSizeClass?
@@ -190,7 +190,7 @@ struct ContentView: View {
 #if DEBUG
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        FavoritesView()
     }
 }
 #endif

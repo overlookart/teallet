@@ -12,10 +12,20 @@ struct iOSScene: Scene {
     var body: some Scene {
         WindowGroup {
             TabView {
-                ContentView()
+                HomeView()
                     .tabItem {
-                        Label("tab1", systemImage: "book")
+                        Label("Home", systemImage: "person")
                     }
+                StoryView()
+                    .tabItem {
+                        Label("Story", systemImage: "book")
+                    }
+                FavoritesView()
+                    .tabItem {
+                        Label("Favorites", systemImage: "star")
+                    }
+                FunFactsView()
+                    .tabItem { Label("Fun Facts", systemImage: "hand.thumbsup") }
             }
         }
     }

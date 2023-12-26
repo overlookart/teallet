@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		04B8439E2477BDB500902367 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B8439D2477BDB500902367 /* ContentView.swift */; };
+		04B8439E2477BDB500902367 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B8439D2477BDB500902367 /* FavoritesView.swift */; };
 		04B843A02477BDBA00902367 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04B8439F2477BDBA00902367 /* Assets.xcassets */; };
 		04B843A32477BDBA00902367 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04B843A22477BDBA00902367 /* Preview Assets.xcassets */; };
 		04B843A62477BDBA00902367 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04B843A42477BDBA00902367 /* LaunchScreen.storyboard */; };
@@ -131,6 +131,9 @@
 		04B844B12477DEC800902367 /* menu.json in Resources */ = {isa = PBXBuildFile; fileRef = 04B8443D2477DEC800902367 /* menu.json */; };
 		E9C971112B3A62AA00FDC2EF /* SUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C971102B3A62AA00FDC2EF /* SUIApp.swift */; };
 		E9C971132B3A7AE500FDC2EF /* iOSScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C971122B3A7AE500FDC2EF /* iOSScene.swift */; };
+		E9C971152B3A7FBF00FDC2EF /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C971142B3A7FBF00FDC2EF /* HomeView.swift */; };
+		E9C971172B3A803400FDC2EF /* StoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C971162B3A803400FDC2EF /* StoryView.swift */; };
+		E9C971192B3A80C800FDC2EF /* FunFactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C971182B3A80C800FDC2EF /* FunFactsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -152,7 +155,7 @@
 
 /* Begin PBXFileReference section */
 		04B843962477BDB500902367 /* SUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		04B8439D2477BDB500902367 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		04B8439D2477BDB500902367 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		04B8439F2477BDBA00902367 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04B843A22477BDBA00902367 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		04B843A52477BDBA00902367 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -281,6 +284,9 @@
 		04B8443D2477DEC800902367 /* menu.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = menu.json; sourceTree = "<group>"; };
 		E9C971102B3A62AA00FDC2EF /* SUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SUIApp.swift; sourceTree = "<group>"; };
 		E9C971122B3A7AE500FDC2EF /* iOSScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSScene.swift; sourceTree = "<group>"; };
+		E9C971142B3A7FBF00FDC2EF /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		E9C971162B3A803400FDC2EF /* StoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryView.swift; sourceTree = "<group>"; };
+		E9C971182B3A80C800FDC2EF /* FunFactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunFactsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -333,7 +339,8 @@
 			children = (
 				E9C971102B3A62AA00FDC2EF /* SUIApp.swift */,
 				E9C971122B3A7AE500FDC2EF /* iOSScene.swift */,
-				04B8439D2477BDB500902367 /* ContentView.swift */,
+				E9C971142B3A7FBF00FDC2EF /* HomeView.swift */,
+				04B8439D2477BDB500902367 /* FavoritesView.swift */,
 				04B8443A2477DEC800902367 /* Helper.swift */,
 				04B843C92477DEC700902367 /* Images */,
 				04B8443D2477DEC800902367 /* menu.json */,
@@ -343,6 +350,8 @@
 				04B843A42477BDBA00902367 /* LaunchScreen.storyboard */,
 				04B843A72477BDBA00902367 /* Info.plist */,
 				04B843A12477BDBA00902367 /* Preview Content */,
+				E9C971162B3A803400FDC2EF /* StoryView.swift */,
+				E9C971182B3A80C800FDC2EF /* FunFactsView.swift */,
 			);
 			path = SUI;
 			sourceTree = "<group>";
@@ -737,11 +746,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				04B844B02477DEC800902367 /* Order.swift in Sources */,
+				E9C971152B3A7FBF00FDC2EF /* HomeView.swift in Sources */,
 				E9C971112B3A62AA00FDC2EF /* SUIApp.swift in Sources */,
-				04B8439E2477BDB500902367 /* ContentView.swift in Sources */,
+				04B8439E2477BDB500902367 /* FavoritesView.swift in Sources */,
 				04B844AE2477DEC800902367 /* Helper.swift in Sources */,
 				E9C971132B3A7AE500FDC2EF /* iOSScene.swift in Sources */,
+				E9C971172B3A803400FDC2EF /* StoryView.swift in Sources */,
 				04B844AF2477DEC800902367 /* Menu.swift in Sources */,
+				E9C971192B3A80C800FDC2EF /* FunFactsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
