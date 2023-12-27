@@ -134,6 +134,7 @@
 		E9C971152B3A7FBF00FDC2EF /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C971142B3A7FBF00FDC2EF /* HomeView.swift */; };
 		E9C971172B3A803400FDC2EF /* StoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C971162B3A803400FDC2EF /* StoryView.swift */; };
 		E9C971192B3A80C800FDC2EF /* FunFactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C971182B3A80C800FDC2EF /* FunFactsView.swift */; };
+		E9C9711F2B3BAE0A00FDC2EF /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C9711E2B3BAE0A00FDC2EF /* ListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -287,6 +288,7 @@
 		E9C971142B3A7FBF00FDC2EF /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		E9C971162B3A803400FDC2EF /* StoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryView.swift; sourceTree = "<group>"; };
 		E9C971182B3A80C800FDC2EF /* FunFactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunFactsView.swift; sourceTree = "<group>"; };
+		E9C9711E2B3BAE0A00FDC2EF /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -341,6 +343,7 @@
 				E9C971122B3A7AE500FDC2EF /* iOSScene.swift */,
 				E9C971142B3A7FBF00FDC2EF /* HomeView.swift */,
 				04B8439D2477BDB500902367 /* FavoritesView.swift */,
+				E9C9711E2B3BAE0A00FDC2EF /* ListView.swift */,
 				04B8443A2477DEC800902367 /* Helper.swift */,
 				04B843C92477DEC700902367 /* Images */,
 				04B8443D2477DEC800902367 /* menu.json */,
@@ -747,6 +750,7 @@
 			files = (
 				04B844B02477DEC800902367 /* Order.swift in Sources */,
 				E9C971152B3A7FBF00FDC2EF /* HomeView.swift in Sources */,
+				E9C9711F2B3BAE0A00FDC2EF /* ListView.swift in Sources */,
 				E9C971112B3A62AA00FDC2EF /* SUIApp.swift in Sources */,
 				04B8439E2477BDB500902367 /* FavoritesView.swift in Sources */,
 				04B844AE2477DEC800902367 /* Helper.swift in Sources */,
