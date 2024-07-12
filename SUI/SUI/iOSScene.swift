@@ -14,19 +14,33 @@ struct iOSScene: Scene {
             TabView {
                 HomeView()
                     .tabItem {
-                        Label("Home", systemImage: "person")
+                        Label("Home", systemImage: "app.gift.fill")
                     }
                 StoryView()
                     .tabItem {
                         Label("Story", systemImage: "book")
                     }
+                
                 FavoritesView()
                     .tabItem {
                         Label("Favorites", systemImage: "star")
                     }
                 FunFactsView()
-                    .tabItem { Label("Fun Facts", systemImage: "hand.thumbsup") }
+                    .tabItem {
+                        Label("Mine", systemImage: "person")
+                    }
+                StoryView()
+                    .tabItem {
+                        Label("Other1", systemImage: "burn")
+                    }
+                StoryView()
+                    .tabItem {
+                        Label("Other2", systemImage: "info.circle.fill")
+                    }
+                    
             }
+            .accentColor(.orange)
+            .tabViewStyle(.automatic)
         }
     }
 }

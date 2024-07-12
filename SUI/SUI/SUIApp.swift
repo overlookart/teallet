@@ -9,6 +9,9 @@
 import SwiftUI
 @main
 struct SUIApp: App {
+    
+    @UIApplicationDelegateAdaptor private var appDelegate: AppDelegate
+    
     var body: some Scene {
         iOSScene()
     }

@@ -9,13 +9,31 @@
 import SwiftUI
 
 struct ListView: View {
-    var data: [String] = ["a","b","c"]
+    let emojis: [Emoji] = Emoji.examples()
     var body: some View {
         List {
-            ForEach(data.indices){ i in
-                Text("\(i)")
+            ForEach(emojis){ i in
+                Text(i.emojiString)
             }
         }
+    }
+}
+
+struct Emoji: Identifiable {
+    let value: Int
+    
+    var emojiString: String {
+        guard let scalar = UnicodeScalar(value) else { return "?" }
+        return String(Character(scalar))
+    }
+    
+    var id: Int {
+        return value
+    }
+    
+    static func examples() -> [Emoji] {
+        let values = 0x1f600...0x1f64f
+        return values.map { Emoji(value: $0) }
     }
 }
 
