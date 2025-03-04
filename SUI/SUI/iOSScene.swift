@@ -12,10 +12,28 @@ struct iOSScene: Scene {
     var body: some Scene {
         WindowGroup {
             TabView {
-                HomeView()
+                if #available(iOS 16.0, *){
+                    NavigationStack {
+                        HomeView().navigationTitle("Home")
+                            .navigationBarTitleDisplayMode(.inline)
+                            .toolbar(.hidden, for: .navigationBar)
+                    }
                     .tabItem {
                         Label("Home", systemImage: "app.gift.fill")
                     }
+                }else{
+                    NavigationView {
+                        HomeView().navigationTitle("Home")
+                            .navigationBarTitleDisplayMode(.inline)
+                            .navigationBarHidden(true)
+                            
+                    }
+                    .navigationViewStyle(.stack)
+                    .tabItem {
+                        Label("Home", systemImage: "app.gift.fill")
+                    }
+                }
+                
                 StoryView()
                     .tabItem {
                         Label("Story", systemImage: "book")
@@ -42,5 +60,8 @@ struct iOSScene: Scene {
             .accentColor(.orange)
             .tabViewStyle(.automatic)
         }
+    }
+    init() {
+        debugPrint("iOS Scene Init")
     }
 }
