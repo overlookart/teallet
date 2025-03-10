@@ -38,7 +38,9 @@ struct HomeView: View {
             ForEach(datas) { section in
                 Section(header: Text(section.sectionName)) {
                     ForEach(section.items) { item in
-                        HomeRowView(model: item)
+                        NavigationLink(destination: DetailView()) {
+                            HomeRowView(model: item)
+                        }
                     }
                 }
             }
