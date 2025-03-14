@@ -22,9 +22,9 @@ struct SectionDataModel: Identifiable {
 
 struct HomeView: View {
     var datas: [SectionDataModel] = [
-        SectionDataModel(sectionName: "分组1", items: [
-            DataModel(title: "My Title", subtitle: "subtitle"),
-            DataModel(title: "标题", subtitle: "子标题")
+        SectionDataModel(sectionName: "法律法规", items: [
+            DataModel(title: "行政处罚法", subtitle: "行政机关依法对违反行政管理秩序"),
+            DataModel(title: "化妆品管理条例", subtitle: "规范化妆品生产经营活动")
         ]),
         SectionDataModel(sectionName: "小池--杨万里", items: [
             DataModel(title: "泉眼无声惜细流", subtitle: "树阴照水爱晴柔"),
@@ -41,10 +41,13 @@ struct HomeView: View {
                         NavigationLink(destination: DetailView()) {
                             HomeRowView(model: item)
                         }
+                        .listRowBackground(Color.purple.opacity(0.1))
+                        .listRowInsets(.init(top: 8, leading: 8, bottom: 8, trailing: 8))
+                        .listItemTint(.green)
                     }
                 }
             }
-        }
+        }.listStyle(.plain)
     }
     
     init(){
