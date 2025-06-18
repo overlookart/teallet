@@ -9,8 +9,25 @@
 import SwiftUI
 
 struct DetailView: View {
+    @State private var showAlert: Bool = false
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            Button("按钮1") {
+                btnAction()
+            }
+            
+            Button(action: btnAction) {
+                Text("按钮2")
+            }
+        }
+        .navigationTitle("详情")
+        .navigationBarTitleDisplayMode(.inline)
+        .alert("弹窗", isPresented: $showAlert) {
+            
+        }
+    }
+    private func btnAction(){
+        showAlert.toggle()
     }
 }
 
