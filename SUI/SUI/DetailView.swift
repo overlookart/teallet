@@ -34,7 +34,6 @@ struct DetailView: View {
                 Button("按钮5", role: .cancel, action: btnAction)
             }
         }
-        
         .navigationTitle("详情")
         .navigationBarTitleDisplayMode(.inline)
         .alert("弹窗", isPresented: $showAlert) {
