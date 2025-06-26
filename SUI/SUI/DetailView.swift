@@ -13,26 +13,38 @@ struct DetailView: View {
     var body: some View {
         VStack{
             HStack {
-                Spacer()
                 Button("按钮1") {
                     btnAction()
                 }
-                Spacer()
+                Text("|")
                 Button(action: btnAction) {
                     Text("按钮2")
                 }
-                Spacer()
+                Text("|")
                 Button("按钮3", systemImage: "timelapse") {
                     btnAction()
                 }
-                Spacer()
             }
             HStack {
                 Button(role: .destructive, action: btnAction) {
                     Text("按钮4")
+                    Image(systemName: "plus")
                 }
+                
                 Button("按钮5", role: .cancel, action: btnAction)
+                Text("|")
+                Button("", systemImage: "", role: .destructive, action: btnAction)
             }
+            
+            HStack {
+                Button("按钮7") {
+                    btnAction()
+                }
+                Button("按钮8", systemImage: "exclamationmark.circle") {
+                    btnAction()
+                }
+                
+            }.buttonStyle(.borderedProminent)
         }
         .navigationTitle("详情")
         .navigationBarTitleDisplayMode(.inline)
