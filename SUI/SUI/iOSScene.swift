@@ -14,23 +14,23 @@ struct iOSScene: Scene {
             TabView {
                 if #available(iOS 16.0, *){
                     NavigationStack {
-                        HomeView().navigationTitle("Home")
+                        HomeView().navigationTitle("首页")
                             .navigationBarTitleDisplayMode(.inline)
-                            .toolbar(.hidden, for: .navigationBar)
+                            .toolbar(.visible, for: .navigationBar)
                     }
                     .tabItem {
-                        Label("Home", systemImage: "app.gift.fill")
+                        Label("Home", systemImage: "heart")
                     }
                 }else{
                     NavigationView {
-                        HomeView().navigationTitle("Home")
-                            .navigationBarTitleDisplayMode(.inline)
-                            .navigationBarHidden(true)
-                            
+                        HomeView()
+                            .navigationTitle("首页")
+                            .navigationBarTitleDisplayMode(.large)
+                            .navigationBarHidden(false)
+                            .navigationViewStyle(.stack)
                     }
-                    .navigationViewStyle(.stack)
                     .tabItem {
-                        Label("Home", systemImage: "app.gift.fill")
+                        Label("Home", systemImage: "heart")
                     }
                 }
                 
