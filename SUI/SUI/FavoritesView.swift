@@ -16,25 +16,37 @@ import SwiftUI
  *option + command + enter 显示/隐藏预览窗口
  */
 
-let formatterStr = "long textbstring"
-let colors: [Color] = [.red, .green, .blue]
-let results = [Result(score: 8), Result(score: 5), Result(score: 10)]
-struct Result {
-    var id = UUID()
-    var score: Int
-}
-
 struct FavoritesView: View {
-    
-    @Environment(\.horizontalSizeClass) var horizontalSizeClass: UserInterfaceSizeClass?
+    @State private var isVisible: Bool = false
     var body: some View {
-        NavigationView {
-            ListView()
-                .navigationTitle("列表")
+        VStack {
+            VisibleBtn(isVisible: $isVisible)
+            if isVisible {
+                Text("Hello Text")
+            }
         }
-    
     }
 }
+
+struct VisibleBtn: View {
+    @State private var title = "显示"
+    @Binding public var isVisible: Bool
+    var body: some View {
+        Button(action: {
+            isVisible.toggle()
+            title = isVisible ? "隐藏" : "显示"
+        }, label: {
+            Text(title)
+        })
+    }
+}
+
+struct CustomStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label.foregroundStyle(configuration.isPressed ? .orange : .cyan)
+    }
+}
+
 
 #Preview {
     FavoritesView()

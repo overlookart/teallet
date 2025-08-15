@@ -14,7 +14,8 @@ struct iOSScene: Scene {
             TabView {
                 if #available(iOS 16.0, *){
                     NavigationStack {
-                        HomeView().navigationTitle("首页")
+                        HomeView()
+                            .navigationTitle("首页")
                             .navigationBarTitleDisplayMode(.inline)
                             .toolbar(.visible, for: .navigationBar)
                     }
