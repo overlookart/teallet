@@ -35,12 +35,15 @@ struct iOSScene: Scene {
                     }
                 }
                 
-                StoryView()
-                    .tabItem {
-                        Label("Story", systemImage: "book")
-                    }
+                NavigationView {
+                    StoryView()
+                }
+                .tabItem {
+                    Label("Story", systemImage: "book")
+                }
                 
-                FavoritesView()
+                
+                PropertyBindingView()
                     .tabItem {
                         Label("Favorites", systemImage: "star")
                     }

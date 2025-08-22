@@ -73,7 +73,6 @@ struct ListView: View {
                             .tint(.orange)
                         }
                         //.badge("❤️")//设置徽章
-                        
                     }
                 }
                 .listSectionSeparatorTint(.cyan, edges: .all)

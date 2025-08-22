@@ -8,15 +8,7 @@
 
 import SwiftUI
 
-/*
- 所有视图必须遵循View协议
- 该协议需要一个body计算属性，包含视图的实际布局
- 
- *option + command + P 更新SwiftUI预览
- *option + command + enter 显示/隐藏预览窗口
- */
-
-struct FavoritesView: View {
+struct PropertyBindingView: View {
     @State private var isVisible: Bool = false
     var body: some View {
         VStack {
@@ -29,15 +21,14 @@ struct FavoritesView: View {
 }
 
 struct VisibleBtn: View {
-    @State private var title = "显示"
     @Binding public var isVisible: Bool
     var body: some View {
-        Button(action: {
-            isVisible.toggle()
-            title = isVisible ? "隐藏" : "显示"
-        }, label: {
-            Text(title)
-        })
+        VStack {
+            Button(isVisible ? "隐藏" : "显示") {
+                isVisible.toggle()
+                debugPrint(isVisible)
+            }
+        }
     }
 }
 
@@ -49,5 +40,5 @@ struct CustomStyle: ButtonStyle {
 
 
 #Preview {
-    FavoritesView()
+    PropertyBindingView()
 }

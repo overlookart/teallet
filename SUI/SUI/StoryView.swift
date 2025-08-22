@@ -10,7 +10,24 @@ import SwiftUI
 
 struct StoryView: View {
     var body: some View {
-        Text("StoryView")
+        List {
+            Section("Model Data") {
+                NavigationLink{
+                    PropertyBindingView()
+                } label: {
+                    Text("Property Binding")
+                }
+                NavigationLink {
+                    ObjectObservedView()
+                } label: {
+                    Text("Object Observed")
+                }
+            }
+            Section("Environment Value") {
+                
+            }
+        }
+        .navigationTitle("Data & storage")
     }
 }
 
