@@ -28,9 +28,7 @@ struct HomeView: View {
             }
             
             ToolbarItem(placement: .topBarLeading) {
-                Button("编辑") {
-                    
-                }
+                EditButton()
             }
         }
     }

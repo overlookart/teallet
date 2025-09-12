@@ -18,13 +18,12 @@ struct ObjectObservedView: View {
     var body: some View {
         Text(model.name)
         Text("\(model.isEnabled)")
-        MySubView()
-            .environmentObject(model)
+        MySubView(model: model)
     }
 }
 
 struct MySubView: View {
-    @EnvironmentObject var model: ObjectModel
+    @ObservedObject var model: ObjectModel
     var body: some View {
         Toggle(model.isEnabled ? "关闭" : "开启", isOn: $model.isEnabled)
     }

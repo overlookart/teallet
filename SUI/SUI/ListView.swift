@@ -21,7 +21,7 @@ struct SectionDataModel: Identifiable {
 }
 
 struct ListView: View {
-    var datas: [SectionDataModel] = [
+    private var datas: [SectionDataModel] = [
         SectionDataModel(sectionName: "法律法规", items: [
             DataModel(title: "行政处罚法", subtitle: "行政机关依法对违反行政管理秩序"),
             DataModel(title: "化妆品管理条例", subtitle: "规范化妆品生产经营活动"),

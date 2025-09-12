@@ -133,6 +133,8 @@
 		E9405B982D7EEA200072F7DC /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9405B972D7EEA200072F7DC /* DetailView.swift */; };
 		E9505E372C3E2892001F55B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9505E362C3E2892001F55B3 /* AppDelegate.swift */; };
 		E9505E392C3E2E3B001F55B3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9505E382C3E2E3B001F55B3 /* SceneDelegate.swift */; };
+		E96624C32E73C2AB00AADAC7 /* EnvironmentValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96624C22E73C2AB00AADAC7 /* EnvironmentValue.swift */; };
+		E96624C52E73C5F800AADAC7 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96624C42E73C5F800AADAC7 /* SettingView.swift */; };
 		E9C971112B3A62AA00FDC2EF /* SUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C971102B3A62AA00FDC2EF /* SUIApp.swift */; };
 		E9C971132B3A7AE500FDC2EF /* iOSScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C971122B3A7AE500FDC2EF /* iOSScene.swift */; };
 		E9C971152B3A7FBF00FDC2EF /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C971142B3A7FBF00FDC2EF /* HomeView.swift */; };
@@ -291,6 +293,8 @@
 		E9405B972D7EEA200072F7DC /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		E9505E362C3E2892001F55B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9505E382C3E2E3B001F55B3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		E96624C22E73C2AB00AADAC7 /* EnvironmentValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentValue.swift; sourceTree = "<group>"; };
+		E96624C42E73C5F800AADAC7 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		E9C971102B3A62AA00FDC2EF /* SUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SUIApp.swift; sourceTree = "<group>"; };
 		E9C971122B3A7AE500FDC2EF /* iOSScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSScene.swift; sourceTree = "<group>"; };
 		E9C971142B3A7FBF00FDC2EF /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -347,6 +351,7 @@
 		04B843982477BDB500902367 /* SUI */ = {
 			isa = PBXGroup;
 			children = (
+				E96624C12E73C24500AADAC7 /* EnvironmentValues */,
 				E90D49C82E5427C800DEDBC9 /* ModelData */,
 				E9C971102B3A62AA00FDC2EF /* SUIApp.swift */,
 				E9C971122B3A7AE500FDC2EF /* iOSScene.swift */,
@@ -355,6 +360,7 @@
 				E9405B972D7EEA200072F7DC /* DetailView.swift */,
 				04B8443A2477DEC800902367 /* Helper.swift */,
 				E9C971162B3A803400FDC2EF /* StoryView.swift */,
+				E96624C42E73C5F800AADAC7 /* SettingView.swift */,
 				04B843C92477DEC700902367 /* Images */,
 				04B8443D2477DEC800902367 /* menu.json */,
 				04B8443B2477DEC800902367 /* Menu.swift */,
@@ -524,6 +530,14 @@
 			path = ModelData;
 			sourceTree = "<group>";
 		};
+		E96624C12E73C24500AADAC7 /* EnvironmentValues */ = {
+			isa = PBXGroup;
+			children = (
+				E96624C22E73C2AB00AADAC7 /* EnvironmentValue.swift */,
+			);
+			path = EnvironmentValues;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -612,6 +626,8 @@
 				Base,
 			);
 			mainGroup = 04B8438D2477BDB500902367;
+			packageReferences = (
+			);
 			productRefGroup = 04B843972477BDB500902367 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -772,6 +788,8 @@
 				04B844B02477DEC800902367 /* Order.swift in Sources */,
 				E9C971152B3A7FBF00FDC2EF /* HomeView.swift in Sources */,
 				E9C9711F2B3BAE0A00FDC2EF /* ListView.swift in Sources */,
+				E96624C32E73C2AB00AADAC7 /* EnvironmentValue.swift in Sources */,
+				E96624C52E73C5F800AADAC7 /* SettingView.swift in Sources */,
 				E9C971112B3A62AA00FDC2EF /* SUIApp.swift in Sources */,
 				E90D49CC2E55798400DEDBC9 /* ObjectObservedView.swift in Sources */,
 				04B8439E2477BDB500902367 /* PropertyBindingView.swift in Sources */,

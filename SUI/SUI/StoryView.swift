@@ -23,8 +23,13 @@ struct StoryView: View {
                     Text("Object Observed")
                 }
             }
-            Section("Environment Value") {
-                
+            Section("Environment Values") {
+                NavigationLink {
+                    EnvironmentValue()
+                } label: {
+                    Text("Environment value")
+                }
+
             }
         }
         .navigationTitle("Data & storage")

@@ -51,9 +51,9 @@ struct iOSScene: Scene {
                     .tabItem {
                         Label("Mine", systemImage: "person")
                     }
-                StoryView()
+                SettingView()
                     .tabItem {
-                        Label("Other1", systemImage: "burn")
+                        Label("设置", systemImage: "gearshape.fill")
                     }
                 StoryView()
                     .tabItem {
