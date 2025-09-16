@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct StoryView: View {
+struct DataView: View {
     var body: some View {
         List {
             Section("Model Data") {
@@ -27,7 +27,13 @@ struct StoryView: View {
                 NavigationLink {
                     EnvironmentValue()
                 } label: {
-                    Text("Environment value")
+                    Text("Environment values")
+                }
+                
+                NavigationLink {
+                    CustomEnvironmentValue()
+                } label: {
+                    Text("Custom Environment value")
                 }
 
             }
@@ -37,5 +43,5 @@ struct StoryView: View {
 }
 
 #Preview {
-    StoryView()
+    DataView()
 }

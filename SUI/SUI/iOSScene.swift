@@ -36,10 +36,10 @@ struct iOSScene: Scene {
                 }
                 
                 NavigationView {
-                    StoryView()
+                    DataView()
                 }
                 .tabItem {
-                    Label("Story", systemImage: "book")
+                    Label("Data", systemImage: "d.circle.fill")
                 }
                 
                 
@@ -55,7 +55,7 @@ struct iOSScene: Scene {
                     .tabItem {
                         Label("设置", systemImage: "gearshape.fill")
                     }
-                StoryView()
+                DataView()
                     .tabItem {
                         Label("Other2", systemImage: "info.circle.fill")
                     }
