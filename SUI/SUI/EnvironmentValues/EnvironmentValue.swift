@@ -79,7 +79,6 @@ struct EnvironmentValue: View {
     
     private func setupData(){
         data = [
-            
             .init(title: "layoutDirection", value: layoutDirection),
             .init(title: "controlSize", value: controlSize),
             .init(title: "multilineTextAlignment", value: multilineTextAlignment),
