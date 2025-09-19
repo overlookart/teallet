@@ -13,19 +13,24 @@ struct SUIApp: App {
     @UIApplicationDelegateAdaptor private var appDelegate: AppDelegate
     @Environment(\.scenePhase) private var scenePhase
     
+    
     var body: some Scene {
         iOSScene()
-            .onChange(of: scenePhase) { newScenePhase in // 场景的生命周期
-            switch newScenePhase {
-                case .active:
-                    debugPrint("Scene Active")
-                case .background:
-                    debugPrint("Scene Background")
-                case .inactive:
-                    debugPrint("Scene Inactive")
-                @unknown default:
-                    fatalError()
-            }
+            .onChange(of: scenePhase, perform: sceneChange(scenePhase:))
+        
+    }
+    
+    ///  场景的生命周期
+    private func sceneChange(scenePhase: ScenePhase) {
+        switch scenePhase {
+            case .active:
+                debugPrint("Scene Active")
+            case .background:
+                debugPrint("Scene Background")
+            case .inactive:
+                debugPrint("Scene Inactive")
+            @unknown default:
+                fatalError()
         }
     }
     

@@ -42,30 +42,28 @@ struct iOSScene: Scene {
                     Label("Data", systemImage: "d.circle.fill")
                 }
                 
-                
-                PropertyBindingView()
-                    .tabItem {
-                        Label("Favorites", systemImage: "star")
-                    }
+                NavigationView {
+                    CustomView()
+                }
+                .tabItem {
+                    Label("View", systemImage: "square.stack.3d.down.forward.fill")
+                }
                 FunFactsView()
                     .tabItem {
                         Label("Mine", systemImage: "person")
                     }
-                SettingView()
-                    .tabItem {
-                        Label("设置", systemImage: "gearshape.fill")
-                    }
-                DataView()
-                    .tabItem {
-                        Label("Other2", systemImage: "info.circle.fill")
-                    }
+//                SettingView()
+//                    .tabItem {
+//                        Label("设置", systemImage: "gearshape.fill")
+//                    }
+//                DataView()
+//                    .tabItem {
+//                        Label("Other2", systemImage: "info.circle.fill")
+//                    }
                     
             }
             .accentColor(.orange)
             .tabViewStyle(.automatic)
         }
-    }
-    init() {
-        debugPrint("iOS Scene Init")
     }
 }
