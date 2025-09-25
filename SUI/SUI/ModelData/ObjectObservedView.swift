@@ -17,7 +17,7 @@ struct ObjectObservedView: View {
     @StateObject private var model = ObjectModel()
     var body: some View {
         Text(model.name)
-        Text("\(model.isEnabled)")
+        Text(model.isEnabled.description)
         MySubView(model: model)
     }
 }

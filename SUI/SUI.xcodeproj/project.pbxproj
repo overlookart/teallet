@@ -136,6 +136,7 @@
 		E910E0A72E7D3C9E00BFBF88 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E910E0A62E7D3C9E00BFBF88 /* CircleView.swift */; };
 		E910E0A92E7D3D2F00BFBF88 /* EllipseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E910E0A82E7D3D2F00BFBF88 /* EllipseView.swift */; };
 		E910E0AB2E7D3D8200BFBF88 /* CapsuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E910E0AA2E7D3D8200BFBF88 /* CapsuleView.swift */; };
+		E93FB3392E838551009A9C84 /* CustomViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93FB3382E838551009A9C84 /* CustomViewModifier.swift */; };
 		E9405B982D7EEA200072F7DC /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9405B972D7EEA200072F7DC /* DetailView.swift */; };
 		E9505E372C3E2892001F55B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9505E362C3E2892001F55B3 /* AppDelegate.swift */; };
 		E9505E392C3E2E3B001F55B3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9505E382C3E2E3B001F55B3 /* SceneDelegate.swift */; };
@@ -302,6 +303,7 @@
 		E910E0A62E7D3C9E00BFBF88 /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		E910E0A82E7D3D2F00BFBF88 /* EllipseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EllipseView.swift; sourceTree = "<group>"; };
 		E910E0AA2E7D3D8200BFBF88 /* CapsuleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleView.swift; sourceTree = "<group>"; };
+		E93FB3382E838551009A9C84 /* CustomViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewModifier.swift; sourceTree = "<group>"; };
 		E9405B972D7EEA200072F7DC /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		E9505E362C3E2892001F55B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9505E382C3E2E3B001F55B3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -551,6 +553,7 @@
 				E910E0A62E7D3C9E00BFBF88 /* CircleView.swift */,
 				E910E0A82E7D3D2F00BFBF88 /* EllipseView.swift */,
 				E910E0AA2E7D3D8200BFBF88 /* CapsuleView.swift */,
+				E93FB3382E838551009A9C84 /* CustomViewModifier.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -823,6 +826,7 @@
 				E9C971112B3A62AA00FDC2EF /* SUIApp.swift in Sources */,
 				E90D49CC2E55798400DEDBC9 /* ObjectObservedView.swift in Sources */,
 				04B8439E2477BDB500902367 /* PropertyBindingView.swift in Sources */,
+				E93FB3392E838551009A9C84 /* CustomViewModifier.swift in Sources */,
 				E910E0A52E7D379300BFBF88 /* RectangleView.swift in Sources */,
 				04B844AE2477DEC800902367 /* Helper.swift in Sources */,
 				E9405B982D7EEA200072F7DC /* DetailView.swift in Sources */,
@@ -999,6 +1003,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"SUI/Preview Content\"";
 				DEVELOPMENT_TEAM = BJ8BDGHJ5V;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = SUI/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -1008,6 +1015,11 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.develop.yct;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1020,6 +1032,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"SUI/Preview Content\"";
 				DEVELOPMENT_TEAM = BJ8BDGHJ5V;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = SUI/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -1029,6 +1044,11 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.develop.yct;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -12,7 +12,9 @@ struct CustomView: View {
     var body: some View {
         List {
             Section("ViewModifier") {
-                Text("Custom View Modifier")
+                NavigationLink("Custom View Modifier") {
+                    CustomViewModifier()
+                }
             }
             
             Section("Layout") {
