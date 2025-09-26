@@ -15,8 +15,9 @@ struct SUIApp: App {
     
     
     var body: some Scene {
-        iOSScene()
+        MainScene()
             .onChange(of: scenePhase, perform: sceneChange(scenePhase:))
+        
         
     }
     

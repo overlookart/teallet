@@ -142,8 +142,9 @@
 		E9505E392C3E2E3B001F55B3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9505E382C3E2E3B001F55B3 /* SceneDelegate.swift */; };
 		E96624C32E73C2AB00AADAC7 /* EnvironmentValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96624C22E73C2AB00AADAC7 /* EnvironmentValue.swift */; };
 		E96624C52E73C5F800AADAC7 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96624C42E73C5F800AADAC7 /* SettingView.swift */; };
+		E9B1B3AC2E8692740098AB20 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B1B3AB2E8692740098AB20 /* MainTabView.swift */; };
 		E9C971112B3A62AA00FDC2EF /* SUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C971102B3A62AA00FDC2EF /* SUIApp.swift */; };
-		E9C971132B3A7AE500FDC2EF /* iOSScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C971122B3A7AE500FDC2EF /* iOSScene.swift */; };
+		E9C971132B3A7AE500FDC2EF /* MainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C971122B3A7AE500FDC2EF /* MainScene.swift */; };
 		E9C971152B3A7FBF00FDC2EF /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C971142B3A7FBF00FDC2EF /* HomeView.swift */; };
 		E9C971172B3A803400FDC2EF /* DataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C971162B3A803400FDC2EF /* DataView.swift */; };
 		E9C971192B3A80C800FDC2EF /* FunFactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C971182B3A80C800FDC2EF /* FunFactsView.swift */; };
@@ -309,8 +310,9 @@
 		E9505E382C3E2E3B001F55B3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E96624C22E73C2AB00AADAC7 /* EnvironmentValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentValue.swift; sourceTree = "<group>"; };
 		E96624C42E73C5F800AADAC7 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		E9B1B3AB2E8692740098AB20 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		E9C971102B3A62AA00FDC2EF /* SUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SUIApp.swift; sourceTree = "<group>"; };
-		E9C971122B3A7AE500FDC2EF /* iOSScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSScene.swift; sourceTree = "<group>"; };
+		E9C971122B3A7AE500FDC2EF /* MainScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScene.swift; sourceTree = "<group>"; };
 		E9C971142B3A7FBF00FDC2EF /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		E9C971162B3A803400FDC2EF /* DataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataView.swift; sourceTree = "<group>"; };
 		E9C971182B3A80C800FDC2EF /* FunFactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunFactsView.swift; sourceTree = "<group>"; };
@@ -369,7 +371,8 @@
 				E96624C12E73C24500AADAC7 /* EnvironmentValues */,
 				E90D49C82E5427C800DEDBC9 /* ModelData */,
 				E9C971102B3A62AA00FDC2EF /* SUIApp.swift */,
-				E9C971122B3A7AE500FDC2EF /* iOSScene.swift */,
+				E9C971122B3A7AE500FDC2EF /* MainScene.swift */,
+				E9B1B3AB2E8692740098AB20 /* MainTabView.swift */,
 				E9C971142B3A7FBF00FDC2EF /* HomeView.swift */,
 				E9C9711E2B3BAE0A00FDC2EF /* ListView.swift */,
 				E9405B972D7EEA200072F7DC /* DetailView.swift */,
@@ -819,6 +822,7 @@
 				04B844B02477DEC800902367 /* Order.swift in Sources */,
 				E910E09C2E78FE5000BFBF88 /* CustomEnvironmentValue.swift in Sources */,
 				E910E0A22E7D34E600BFBF88 /* CustomView.swift in Sources */,
+				E9B1B3AC2E8692740098AB20 /* MainTabView.swift in Sources */,
 				E9C971152B3A7FBF00FDC2EF /* HomeView.swift in Sources */,
 				E9C9711F2B3BAE0A00FDC2EF /* ListView.swift in Sources */,
 				E96624C32E73C2AB00AADAC7 /* EnvironmentValue.swift in Sources */,
@@ -830,7 +834,7 @@
 				E910E0A52E7D379300BFBF88 /* RectangleView.swift in Sources */,
 				04B844AE2477DEC800902367 /* Helper.swift in Sources */,
 				E9405B982D7EEA200072F7DC /* DetailView.swift in Sources */,
-				E9C971132B3A7AE500FDC2EF /* iOSScene.swift in Sources */,
+				E9C971132B3A7AE500FDC2EF /* MainScene.swift in Sources */,
 				E9C971172B3A803400FDC2EF /* DataView.swift in Sources */,
 				E910E0A72E7D3C9E00BFBF88 /* CircleView.swift in Sources */,
 				04B844AF2477DEC800902367 /* Menu.swift in Sources */,
@@ -1016,8 +1020,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.develop.yct;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
-				SUPPORTS_MACCATALYST = NO;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = YES;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
@@ -1045,8 +1049,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.develop.yct;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
-				SUPPORTS_MACCATALYST = NO;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = YES;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
