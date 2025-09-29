@@ -15,10 +15,16 @@ struct SUIApp: App {
     
     
     var body: some Scene {
-        MainScene()
-            .onChange(of: scenePhase, perform: sceneChange(scenePhase:))
+        WindowGroup {
+            if #available(iOS 18.0, *) {
+                MainTabView()
+                    .tabViewStyle(.sidebarAdaptable)
+            }else {
+                MainTabView()
+            }
+        }
         
-        
+        .onChange(of: scenePhase, perform: sceneChange(scenePhase:))
     }
     
     ///  场景的生命周期

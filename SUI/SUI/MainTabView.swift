@@ -51,15 +51,6 @@ struct MainTabView: View {
                 .tabItem {
                     Label("Mine", systemImage: "person")
                 }
-//                SettingView()
-//                    .tabItem {
-//                        Label("设置", systemImage: "gearshape.fill")
-//                    }
-//                DataView()
-//                    .tabItem {
-//                        Label("Other2", systemImage: "info.circle.fill")
-//                    }
-                
         }
         .accentColor(.orange)
     }

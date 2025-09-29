@@ -12,6 +12,12 @@ class SceneDelegate: NSObject, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         debugPrint("SceneDelegate -> willConnectTo")
+        guard let windowScene = scene as? UIWindowScene else { return }
+        #if targetEnvironment(macCatalyst)
+        if let titleBar = windowScene.titlebar {
+            titleBar.titleVisibility = .hidden
+        }
+        #endif
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {
