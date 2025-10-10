@@ -18,7 +18,9 @@ struct CustomView: View {
             }
             
             Section("Layout") {
-                
+                NavigationLink("Stack Layout") {
+                    StackLayout()
+                }
             }
             
             Section("Shapes") {
