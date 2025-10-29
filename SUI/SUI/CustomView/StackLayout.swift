@@ -28,12 +28,13 @@ struct StackLayout: View {
             }
             
             Section("ZStack") {
-                ZStack(alignment: .center) {
-                    Circle().frame(height: 200)
-                    Circle().frame(height: 150).foregroundColor(.accentColor)
-                    Circle().frame(height: 100).foregroundColor(.blue)
-                    Circle().frame(height: 50).foregroundColor(.red)
+                ZStack(alignment: .topLeading) {
+                    Circle().frame(width: 200, height: 200)
+                    Circle().frame(width: 150, height: 150).foregroundColor(.accentColor)
+                    Circle().frame(width: 100, height: 100).foregroundColor(.blue)
+                    Circle().frame(width: 50, height: 50).foregroundColor(.red)
                 }
+                .border(Color.green, width: 1)
             }
         }
         .navigationTitle("Stack Layout")
