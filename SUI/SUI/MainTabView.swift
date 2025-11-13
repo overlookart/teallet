@@ -47,6 +47,14 @@ struct MainTabView: View {
             .tabItem {
                 Label("View", systemImage: "square.stack.3d.down.forward.fill")
             }
+            
+            NavigationView {
+                ServicesView()
+            }
+            .tabItem {
+                Label("Services", systemImage: "icloud")
+            }
+            
             FunFactsView()
                 .tabItem {
                     Label("Mine", systemImage: "person")

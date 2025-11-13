@@ -21,6 +21,11 @@ struct CustomView: View {
                 NavigationLink("Stack Layout") {
                     StackLayout()
                 }
+                if #available(iOS 16.0, *) {
+                    NavigationLink("Grid Layout") {
+                        GridView()
+                    }
+                }
             }
             
             Section("Shapes") {
