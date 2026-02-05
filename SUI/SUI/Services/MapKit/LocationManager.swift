@@ -8,7 +8,6 @@
 
 import Foundation
 import CoreLocation
-import MapKit
 class LocationManager: NSObject, ObservableObject {
     static let shared = LocationManager()
     private let manager = CLLocationManager()
@@ -16,10 +15,9 @@ class LocationManager: NSObject, ObservableObject {
     /// 位置权限状态
     @Published var authorizationStatus: CLAuthorizationStatus = .notDetermined
     
-    
     @Published var lastLocation = CLLocation()
     
-    @Published var lastRegion = MKCoordinateRegion()
+    @Published var isPositioning: Bool = false
     
     override init() {
         super.init()
@@ -51,22 +49,20 @@ extension LocationManager: CLLocationManagerDelegate {
         case .denied, .restricted:
             debugPrint("请求位置权限失败")
         case .notDetermined:
-            break
+            debugPrint("位置权限未确定")
         @unknown default:
-            break
+            debugPrint("未知的位置权限状态")
         }
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else { return }
-        debugPrint("获取位置成功")
+        debugPrint("获取位置成功: \(location)")
         lastLocation = location
-        lastRegion = MKCoordinateRegion(center: location.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
+        isPositioning = true
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: any Error) {
         debugPrint("LocationManager:---->\(error.localizedDescription)")
     }
-    
-    
 }
