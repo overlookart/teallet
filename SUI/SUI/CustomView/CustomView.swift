@@ -42,7 +42,16 @@ struct CustomView: View {
                     CapsuleView()
                 }
             }
+            Section("Controls") {
+                NavigationLink("Button") {
+                    ButtonView()
+                }
+                NavigationLink("Link") {
+                    LinkView()
+                }
+            }
         }
+        .navigationTitle("View")
     }
 }
 
