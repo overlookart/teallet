@@ -19,7 +19,9 @@ struct SliderView: View {
             }
                     
             Section("步进Slider") {
-                Slider(value: $speed, in: 0...100, step: 5)
+                Slider(value: $speed, in: 0...100, step: 10){
+                    Text("iOS 26+ 自动显示刻度")
+                }
             }
                     
             Section("带标签") {

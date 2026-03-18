@@ -154,6 +154,7 @@
 		E9D352262F6923C800FD8E12 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D352252F6923C800FD8E12 /* ButtonView.swift */; };
 		E9D352282F69300400FD8E12 /* LinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D352272F69300400FD8E12 /* LinkView.swift */; };
 		E9D3522A2F6A3EB500FD8E12 /* SliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D352292F6A3EB500FD8E12 /* SliderView.swift */; };
+		E9D3522C2F6A6C8A00FD8E12 /* StepperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D3522B2F6A6C8A00FD8E12 /* StepperView.swift */; };
 		E9D873622EB1DC3C00C6FD46 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D873612EB1DC3C00C6FD46 /* GridView.swift */; };
 		E9FD4B4C2EC579C900B4B02B /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FD4B4B2EC579C900B4B02B /* LocationManager.swift */; };
 /* End PBXBuildFile section */
@@ -329,6 +330,7 @@
 		E9D352252F6923C800FD8E12 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		E9D352272F69300400FD8E12 /* LinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkView.swift; sourceTree = "<group>"; };
 		E9D352292F6A3EB500FD8E12 /* SliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderView.swift; sourceTree = "<group>"; };
+		E9D3522B2F6A6C8A00FD8E12 /* StepperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperView.swift; sourceTree = "<group>"; };
 		E9D873612EB1DC3C00C6FD46 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		E9FD4B4B2EC579C900B4B02B /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -611,6 +613,7 @@
 				E9D352252F6923C800FD8E12 /* ButtonView.swift */,
 				E9D352272F69300400FD8E12 /* LinkView.swift */,
 				E9D352292F6A3EB500FD8E12 /* SliderView.swift */,
+				E9D3522B2F6A6C8A00FD8E12 /* StepperView.swift */,
 			);
 			path = Controls;
 			sourceTree = "<group>";
@@ -871,6 +874,7 @@
 				E910E09C2E78FE5000BFBF88 /* CustomEnvironmentValue.swift in Sources */,
 				E910E0A22E7D34E600BFBF88 /* CustomView.swift in Sources */,
 				E9888A752EC2E39500435E41 /* MapView.swift in Sources */,
+				E9D3522C2F6A6C8A00FD8E12 /* StepperView.swift in Sources */,
 				E9B1B3AC2E8692740098AB20 /* MainTabView.swift in Sources */,
 				E9C971152B3A7FBF00FDC2EF /* HomeView.swift in Sources */,
 				E9C9711F2B3BAE0A00FDC2EF /* ListView.swift in Sources */,
