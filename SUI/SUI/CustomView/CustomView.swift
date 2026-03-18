@@ -49,6 +49,9 @@ struct CustomView: View {
                 NavigationLink("Link") {
                     LinkView()
                 }
+                NavigationLink("Slider") {
+                    SliderView()
+                }
             }
         }
         .navigationTitle("View")
