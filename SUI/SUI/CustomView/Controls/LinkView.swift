@@ -9,6 +9,8 @@
 import SwiftUI
 
 struct LinkView: View {
+    @State private var showAlert: Bool = false
+    @State private var alertMessage: String = ""
     var body: some View {
         List {
             // 基础链接
@@ -27,16 +29,20 @@ struct LinkView: View {
             Section("自定义处理") {
                 Link("带日志的链接", destination: URL(string: "https://example.com")!)
                     .environment(\.openURL, OpenURLAction { url in
-                        print("打开: \(url)")
+                        alertMessage = url.absoluteString
+                        showAlert = true
                         return .handled
                     })
+                    .alert("弹窗", isPresented: $showAlert) {
+                        Button("ok"){
+                            showAlert = false
+                        }
+                    } message: {
+                        Text(alertMessage)
+                    }
+
             }
-                    
-            // 样式化链接
-            Section("样式化") {
-                Link("超链接样式", destination: URL(string: "https://www.swift.org")!)
-//                    .buttonStyle(.link)
-                }
+            
         }
         .navigationTitle("Link")
     }
