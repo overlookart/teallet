@@ -156,6 +156,7 @@
 		E9D3522A2F6A3EB500FD8E12 /* SliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D352292F6A3EB500FD8E12 /* SliderView.swift */; };
 		E9D3522C2F6A6C8A00FD8E12 /* StepperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D3522B2F6A6C8A00FD8E12 /* StepperView.swift */; };
 		E9D873622EB1DC3C00C6FD46 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D873612EB1DC3C00C6FD46 /* GridView.swift */; };
+		E9D9CBC02F711266007ACCF2 /* ToggleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D9CBBF2F711266007ACCF2 /* ToggleView.swift */; };
 		E9FD4B4C2EC579C900B4B02B /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FD4B4B2EC579C900B4B02B /* LocationManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -332,6 +333,7 @@
 		E9D352292F6A3EB500FD8E12 /* SliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderView.swift; sourceTree = "<group>"; };
 		E9D3522B2F6A6C8A00FD8E12 /* StepperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperView.swift; sourceTree = "<group>"; };
 		E9D873612EB1DC3C00C6FD46 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
+		E9D9CBBF2F711266007ACCF2 /* ToggleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleView.swift; sourceTree = "<group>"; };
 		E9FD4B4B2EC579C900B4B02B /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -614,6 +616,7 @@
 				E9D352272F69300400FD8E12 /* LinkView.swift */,
 				E9D352292F6A3EB500FD8E12 /* SliderView.swift */,
 				E9D3522B2F6A6C8A00FD8E12 /* StepperView.swift */,
+				E9D9CBBF2F711266007ACCF2 /* ToggleView.swift */,
 			);
 			path = Controls;
 			sourceTree = "<group>";
@@ -880,6 +883,7 @@
 				E9C9711F2B3BAE0A00FDC2EF /* ListView.swift in Sources */,
 				E96624C32E73C2AB00AADAC7 /* EnvironmentValue.swift in Sources */,
 				E96624C52E73C5F800AADAC7 /* SettingView.swift in Sources */,
+				E9D9CBC02F711266007ACCF2 /* ToggleView.swift in Sources */,
 				E9C971112B3A62AA00FDC2EF /* SUIApp.swift in Sources */,
 				E90D49CC2E55798400DEDBC9 /* ObjectObservedView.swift in Sources */,
 				04B8439E2477BDB500902367 /* PropertyBindingView.swift in Sources */,
