@@ -58,6 +58,9 @@ struct CustomView: View {
                 NavigationLink("Toggle") {
                     ToggleView()
                 }
+                NavigationLink("Picker") {
+                    PickerView()
+                }
             }
         }
         .navigationTitle("View")
