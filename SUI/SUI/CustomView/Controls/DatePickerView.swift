@@ -33,6 +33,7 @@ struct DatePickerView: View {
                     .foregroundStyle(.secondary)
             }
         }
+        .navigationTitle("DatePicker")
     }
 }
 

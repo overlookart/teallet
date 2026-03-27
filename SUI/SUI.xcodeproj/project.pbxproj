@@ -159,6 +159,7 @@
 		E9D9CBC02F711266007ACCF2 /* ToggleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D9CBBF2F711266007ACCF2 /* ToggleView.swift */; };
 		E9D9CBC22F725A5A007ACCF2 /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D9CBC12F725A5A007ACCF2 /* PickerView.swift */; };
 		E9D9CBCA2F7612E5007ACCF2 /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D9CBC92F7612E5007ACCF2 /* DatePickerView.swift */; };
+		E9D9CBCE2F7628FD007ACCF2 /* ColorPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D9CBCD2F7628FD007ACCF2 /* ColorPickerView.swift */; };
 		E9FD4B4C2EC579C900B4B02B /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9FD4B4B2EC579C900B4B02B /* LocationManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -338,6 +339,7 @@
 		E9D9CBBF2F711266007ACCF2 /* ToggleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleView.swift; sourceTree = "<group>"; };
 		E9D9CBC12F725A5A007ACCF2 /* PickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
 		E9D9CBC92F7612E5007ACCF2 /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
+		E9D9CBCD2F7628FD007ACCF2 /* ColorPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerView.swift; sourceTree = "<group>"; };
 		E9FD4B4B2EC579C900B4B02B /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -623,6 +625,7 @@
 				E9D9CBBF2F711266007ACCF2 /* ToggleView.swift */,
 				E9D9CBC12F725A5A007ACCF2 /* PickerView.swift */,
 				E9D9CBC92F7612E5007ACCF2 /* DatePickerView.swift */,
+				E9D9CBCD2F7628FD007ACCF2 /* ColorPickerView.swift */,
 			);
 			path = Controls;
 			sourceTree = "<group>";
@@ -905,6 +908,7 @@
 				E9D3522A2F6A3EB500FD8E12 /* SliderView.swift in Sources */,
 				E9888A732EC2E1DA00435E41 /* ServicesView.swift in Sources */,
 				E9FD4B4C2EC579C900B4B02B /* LocationManager.swift in Sources */,
+				E9D9CBCE2F7628FD007ACCF2 /* ColorPickerView.swift in Sources */,
 				E9C971192B3A80C800FDC2EF /* FunFactsView.swift in Sources */,
 				E9D873622EB1DC3C00C6FD46 /* GridView.swift in Sources */,
 				E9505E392C3E2E3B001F55B3 /* SceneDelegate.swift in Sources */,
